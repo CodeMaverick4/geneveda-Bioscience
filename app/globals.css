@@ -1,26 +1,359 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-dark: #0f0518;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #2a1b4e 0%, #0f0518 60%);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --accent-purple: #9d4edd;
+  --accent-blue: #00bcd4;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --font-sans: var(--font-geist-sans), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-dark);
+  background-image: var(--bg-gradient);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav a {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+nav a:hover {
+  color: var(--text-primary);
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8rem 4rem 4rem;
+  min-height: 90vh;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 50%;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #fff, #a0a0ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  color: var(--accent-purple);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.hero-visual {
+  position: relative;
+  width: 45%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glowing-head {
+  width: 100%;
+  height: 100%;
+  background: url('https://placehold.co/600x800/png?text=Head+Mesh') no-repeat center center;
+  /* Placeholder - in real app, use SVG/Image */
+  background-size: contain;
+  filter: drop-shadow(0 0 20px var(--accent-blue));
+  opacity: 0.8;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Stats/Cards */
+.stats-container {
+  position: absolute;
+  left: 4rem;
+  bottom: 4rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  padding: 1.5rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  width: 250px;
+}
+
+.glass-card h3 {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 60px;
+  margin-top: 1rem;
+}
+
+.bar {
+  width: 8px;
+  background: var(--accent-blue);
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+/* Thematic Areas */
+.thematic {
+  padding: 6rem 4rem;
+  text-align: center;
+}
+
+.thematic h2 {
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.circles-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.circle-item {
+  width: 300px;
+  height: 300px;
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.circle-item:hover {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.2);
+}
+
+.circle-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.circle-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Services Section */
+.services-section {
+  padding: 6rem 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  margin-bottom: 4rem;
+  max-width: 800px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #fff, #a0a0ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  padding: 2.5rem;
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-purple);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 1rem;
+  background: rgba(157, 78, 221, 0.1);
+  border-radius: 16px;
+  color: var(--accent-purple);
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.service-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Footer */
+footer {
+  padding: 4rem 4rem 2rem;
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  color: var(--text-secondary);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-links-row {
+  display: flex;
+  gap: 20px;
+}
+
+/* Social Dock */
+.social-dock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+  width: fit-content;
+  margin: 0 auto 3rem;
+  backdrop-filter: blur(10px);
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fffff0;
+  color: #1a1a1a;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 1.5rem;
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.35);
+  background: #1a1a1a;
+  color: #ffffff;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.15);
 }
