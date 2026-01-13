@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Hero from "./components/Hero";
+import PartnersSlider from "./components/PartnersSlider";
 import Services from "./components/Services";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Process from "./components/Process";
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black selection:bg-[#ffeb0f] selection:text-black overflow-x-hidden">
       <Hero />
+      <PartnersSlider />
       <Services />
       <WhyChooseUs />
       <Process />

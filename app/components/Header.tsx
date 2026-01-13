@@ -30,7 +30,6 @@ export default function Header() {
                 setTheme(savedTheme);
                 document.documentElement.classList.toggle("dark", savedTheme === "dark");
             } else {
-                // Default to system preference if no save
                 const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                 setTheme(systemDark ? "dark" : "light");
                 document.documentElement.classList.toggle("dark", systemDark);
@@ -61,8 +60,13 @@ export default function Header() {
     return (
         <>
             {/* ================= HEADER ================= */}
-            {/* Background forced to Yellow (#ffeb0f) in both light and dark modes per instructions */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-[#ffeb0f] border-b border-[#7c1d85]/10 shadow-sm transition-all duration-300">
+            {/* 
+               Fixed Header: 
+               - Pure White Background (#ffffff)
+               - Purple Text/Icons (#7c1d85)
+               - Subtle Shadow
+            */}
+            <header className="fixed top-0 left-0 right-0 z-50 bg-[#ffffff] border-b border-gray-100 shadow-sm transition-all duration-300">
                 <div className="relative flex items-center justify-between max-w-7xl mx-auto px-6 py-4 min-h-[80px]">
 
                     {/* MAIN HEADER CONTENT */}
@@ -70,27 +74,30 @@ export default function Header() {
                         className={`flex items-center justify-between w-full transition-all duration-300
             ${isSearchOpen ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}`}
                     >
+                        {/* Menu Button */}
                         <button
                             onClick={() => setIsSidebarOpen(true)}
                             className="flex items-center gap-3 text-[#7c1d85] hover:opacity-75 transition-colors group"
                         >
                             <Menu className="w-6 h-6" />
-                            <span className="text-sm font-medium uppercase group-hover:underline">Menu</span>
+                            <span className="text-sm font-bold uppercase tracking-wide group-hover:underline">Menu</span>
                         </button>
 
+                        {/* Logo */}
                         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                             <Link
                                 href="/"
-                                className="text-3xl tracking-tight font-bold text-[#7c1d85] hover:opacity-80 transition-opacity"
+                                className="text-3xl tracking-tight font-bold text-[#7c1d85] hover:opacity-90 transition-opacity"
                             >
                                 GeneVeda
                             </Link>
                         </div>
 
+                        {/* Right Actions */}
                         <div className="flex items-center gap-4 sm:gap-6 text-[#7c1d85]">
                             <button
                                 onClick={toggleTheme}
-                                className="p-2 rounded-full hover:bg-black/5 transition-colors"
+                                className="p-2 rounded-full hover:bg-[#7c1d85]/5 transition-colors"
                             >
                                 {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
                             </button>
@@ -99,11 +106,12 @@ export default function Header() {
                                 <Search className="w-5 h-5" />
                             </button>
 
+                            {/* Contact CTA: Yellow Background (#ffeb0f), Black Text (for contrast) or dark purple text? User said "CTA button: #ffeb0f". Assuming text is dark for readability on yellow. */}
                             <Link
                                 href="/contact"
-                                className="text-sm font-medium hover:underline hidden sm:block transition-all"
+                                className="text-sm font-bold hidden sm:block transition-transform hover:scale-105 bg-[#ffeb0f] text-[#7c1d85] px-6 py-3 rounded-full shadow-md hover:shadow-lg"
                             >
-                                Contact us
+                                Contact
                             </Link>
 
                             <button className="flex items-center gap-2 hover:opacity-75 transition-opacity">
@@ -115,11 +123,11 @@ export default function Header() {
 
                     {/* ================= SEARCH OVERLAY ================= */}
                     {isSearchOpen && (
-                        <div className="absolute inset-0 bg-[#ffeb0f] z-30 flex items-center justify-center animate-slideDown">
+                        <div className="absolute inset-0 bg-white z-30 flex items-center justify-center animate-slideDown">
                             <div className="w-full max-w-5xl px-4 flex items-center gap-4">
                                 <div className="flex-1">
-                                    <div className="flex items-center h-12 border border-[#7c1d85] rounded-full px-3 shadow-sm bg-white">
-                                        <button className="flex items-center gap-2 pr-3 border-r border-gray-200 text-sm text-[#7c1d85]">
+                                    <div className="flex items-center h-12 border border-[#7c1d85] rounded-full px-3 shadow-md bg-white">
+                                        <button className="flex items-center gap-2 pr-3 border-r border-[#7c1d85]/20 text-sm text-[#7c1d85]">
                                             <Check className="w-4 h-4" />
                                             Search all
                                             <ChevronDown className="w-4 h-4" />
@@ -168,17 +176,15 @@ export default function Header() {
                             animate={{ x: 0 }}
                             exit={{ x: "-100%" }}
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                            className={`fixed top-0 left-0 bottom-0 w-[80%] max-w-sm z-[70] shadow-2xl p-6 overflow-y-auto
-                                md:bg-[#ffeb0f] bg-[#7c1d85]
-                            `}
+                            className={`fixed top-0 left-0 bottom-0 w-[85%] max-w-sm z-[70] shadow-2xl p-6 overflow-y-auto bg-[#ffeb0f] border-r-4 border-[#ffeb0f]`}
                         >
                             <div className="flex items-center justify-between mb-8">
-                                <span className="text-2xl font-bold md:text-[#7c1d85] text-[#ffeb0f]">
+                                <span className="text-2xl font-bold text-[#7c1d85]">
                                     GeneVeda
                                 </span>
                                 <button
                                     onClick={() => setIsSidebarOpen(false)}
-                                    className="p-2 rounded-full hover:bg-black/10 transition-colors md:text-[#7c1d85] text-white"
+                                    className="p-2 rounded-full hover:bg-gray-100 transition-colors text-[#7c1d85]"
                                 >
                                     <X className="w-6 h-6" />
                                 </button>
@@ -190,21 +196,20 @@ export default function Header() {
                                         key={index}
                                         href={item.href}
                                         onClick={() => setIsSidebarOpen(false)}
-                                        className="flex items-center justify-between p-3 rounded-xl transition-all font-medium text-lg
-                                            md:text-[#7c1d85] md:hover:bg-white/50
-                                            text-white hover:bg-white/10"
+                                        className="flex items-center justify-between p-4 rounded-xl transition-all font-medium text-lg
+                                            text-gray-800 hover:bg-[#7c1d85]/5 hover:text-[#7c1d85]"
                                     >
                                         {item.label}
-                                        <ChevronRight className="w-5 h-5 opacity-60" />
+                                        <ChevronRight className="w-5 h-5 opacity-40" />
                                     </Link>
                                 ))}
                             </nav>
 
-                            <div className="mt-12 pt-8 border-t md:border-black/10 border-white/20">
+                            <div className="mt-12 pt-8 border-t border-gray-100">
                                 <Link
                                     href="/contact"
+                                    onClick={() => setIsSidebarOpen(false)}
                                     className="w-full block text-center py-4 rounded-full font-bold shadow-lg transition-transform hover:scale-105 active:scale-95
-                                        md:bg-[#7c1d85] md:text-white
                                         bg-[#ffeb0f] text-[#7c1d85]"
                                 >
                                     Book a Consultation
