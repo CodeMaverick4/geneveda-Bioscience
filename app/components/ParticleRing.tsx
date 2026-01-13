@@ -34,8 +34,8 @@ export default function ParticleRing() {
         const positions = new Float32Array(count * 3);
         const colors = new Float32Array(count * 3);
 
-        const color1 = new THREE.Color("#FF7F7F"); // Coral/Red
-        const color2 = new THREE.Color("#7fffd4"); // Aquamarine/Cyan
+        const color1 = new THREE.Color("#7c1d85"); // Primary Purple
+        const color2 = new THREE.Color("#ffeb0f"); // Accent Yellow
 
         for (let i = 0; i < count; i++) {
             const angle = Math.random() * Math.PI * 2;
