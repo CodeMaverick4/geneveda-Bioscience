@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
-        <section className="relative w-full overflow-hidden bg-white min-h-[calc(100vh-80px)] flex items-center">
+        <section className="relative w-full overflow-hidden bg-white min-h-[calc(100vh-80px)] flex items-center transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 py-12 lg:py-0">
 
                 {/* Left Content */}
@@ -14,7 +14,7 @@ export default function Hero() {
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="flex flex-col justify-center items-start text-left"
+                    className="flex flex-col justify-center items-start text-left mt-8"
                 >
                     <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-[#7c1d85] mb-6 leading-[1.1]">
                         Advancing Bioscience <br />
@@ -36,7 +36,7 @@ export default function Hero() {
                             Get Consultation
                         </AnimatedButton>
 
-                        <AnimatedButton href="/services" variant="outline" className="!border-gray-300 !text-gray-600 hover:!border-[#7c1d85]">
+                        <AnimatedButton href="/services" variant="outline" className="!border-gray-300 !text-gray-600 hover:!border-[#7c1d85] hover:!text-[#7c1d85]">
                             Explore Services
                         </AnimatedButton>
                     </div>
