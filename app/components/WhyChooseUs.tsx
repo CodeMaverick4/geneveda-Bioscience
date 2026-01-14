@@ -43,8 +43,8 @@ export default function WhyChooseUs() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                             {features.map((feature, index) => (
                                 <div key={index} className="flex flex-col items-start group">
-                                    <div className="mb-4 p-4 bg-[#ffeb0f]/20 rounded-2xl group-hover:bg-[#ffeb0f]/40 transition-colors">
-                                        <feature.icon className="w-6 h-6 text-black" />
+                                    <div className="mb-4 p-4 bg-[#7c1d85]/20 rounded-2xl transition-colors">
+                                        <feature.icon className="w-6 h-6 text-[#7c1d85]" />
                                     </div>
                                     <h4 className="text-lg font-bold text-gray-900 mb-2">
                                         {feature.title}
