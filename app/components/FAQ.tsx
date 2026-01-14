@@ -45,7 +45,7 @@ export default function FAQ() {
                     {faqs.map((faq, index) => (
                         <ScrollReveal key={index} delay={index * 0.1} width="100%">
                             <div
-                                className={`w-full bg-white rounded-[2rem] border overflow-hidden transition-all duration-300 border-black ${openIndex === index ? "shadow-lg bg-gray-50" : "shadow-sm hover:bg-gray-50"
+                                className={`w-full bg-white rounded-[1.5rem] border overflow-hidden transition-all duration-300 border-black ${openIndex === index ? "shadow-lg bg-gray-50" : "shadow-sm hover:bg-gray-50"
                                     }`}
                             >
                                 <button
@@ -58,8 +58,8 @@ export default function FAQ() {
                                     </span>
 
                                     <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${openIndex === index
-                                            ? "bg-[#7c1d85] text-white"
-                                            : "bg-gray-100 text-black border border-black/20"
+                                        ? "bg-[#7c1d85] text-white"
+                                        : "bg-gray-100 text-black border border-black/20"
                                         }`}>
                                         <AnimatePresence mode="wait" initial={false}>
                                             {openIndex === index ? (

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import {
     Menu,
     Search,
@@ -15,11 +16,23 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const menuItems = [
+    { label: "About Us", href: "/about" },
+    { label: "R&D Services", href: "/services/rd" },
+    { label: "Bioinformatics Data Analysis", href: "/services/bioinformatics" },
+    { label: "Next Generation Sequencing (NGS)", href: "/services/ngs" },
+    { label: "Diagnostics", href: "/services/diagnostics" },
+    // { label: "Aptamers", href: "/services/aptamers" },
+    // { label: "AMR", href: "/services/amr" },
+    { label: "Global Study Abroad Guidance", href: "/services/study-abroad" },
+];
+
 export default function Header() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const [theme, setTheme] = useState("light");
+    const pathname = usePathname();
 
     // Initialize Theme
     useEffect(() => {
@@ -44,17 +57,6 @@ export default function Header() {
         localStorage.setItem("theme", newTheme);
     };
 
-    const menuItems = [
-        { label: "About Us", href: "/about" },
-        { label: "R&D services", href: "/#services" },
-        { label: "Bioinformatics data analysis", href: "/#services" },
-        { label: "Nextgeneration sequencing (NGS)", href: "/#services" },
-        { label: "Diagnostics", href: "/#services" },
-        { label: "Aptamers", href: "/#services" },
-        { label: "AMR", href: "/#services" },
-        { label: "Global study abroad guidance", href: "/#services" },
-    ];
-
     if (!isMounted) return null;
 
     return (
@@ -62,11 +64,11 @@ export default function Header() {
             {/* ================= HEADER ================= */}
             {/* 
                Fixed Header: 
-               - Pure White Background (#ffffff)
-               - Purple Text/Icons (#7c1d85)
+               - Background: Yellow (#ffeb0f)
+               - Text/Icons: Purple (#7c1d85)
                - Subtle Shadow
             */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-[#ffffff] border-b border-gray-100 shadow-sm transition-all duration-300">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-[#ffeb0f] border-b border-[#7c1d85]/10 shadow-sm transition-all duration-300">
                 <div className="relative flex items-center justify-between max-w-7xl mx-auto px-6 py-4 min-h-[80px]">
 
                     {/* MAIN HEADER CONTENT */}
@@ -106,10 +108,17 @@ export default function Header() {
                                 <Search className="w-5 h-5" />
                             </button>
 
-                            {/* Contact CTA: Yellow Background (#ffeb0f), Black Text (for contrast) or dark purple text? User said "CTA button: #ffeb0f". Assuming text is dark for readability on yellow. */}
+                            {/* Contact CTA: Purple Background (#7c1d85), White Text for header button? No, user accepted header yellow. Keeping header button as is or updating?
+                               User request: "Header background yellow #ffeb0f, Text/icons purple #7c1d85" (Done)
+                               "Sidebar Button: Background purple #7c1d85, Text white" (This is sidebar button only)
+                               The header button was previously yellow with purple text. Since the header is now yellow, the button needs to contrast. 
+                               Let's make the header CTA button purple with white text too, or removed? 
+                               The prompt specifically said "Sidebar ke bottom mein jo “Book Consultation” button hai". It didn't explicitly ask to change the header CTA button, but yellow on yellow won't be visible.
+                               I will make the main header "Contact" button Purple bg + White text for visibility. 
+                            */}
                             <Link
                                 href="/contact"
-                                className="text-sm font-bold hidden sm:block transition-transform hover:scale-105 bg-[#ffeb0f] text-[#7c1d85] px-6 py-3 rounded-full shadow-md hover:shadow-lg"
+                                className="text-sm font-bold hidden sm:block transition-transform hover:scale-105 bg-[#7c1d85] text-white px-6 py-3 rounded-full shadow-md hover:shadow-lg"
                             >
                                 Contact
                             </Link>
@@ -123,7 +132,7 @@ export default function Header() {
 
                     {/* ================= SEARCH OVERLAY ================= */}
                     {isSearchOpen && (
-                        <div className="absolute inset-0 bg-white z-30 flex items-center justify-center animate-slideDown">
+                        <div className="absolute inset-0 bg-[#ffeb0f] z-30 flex items-center justify-center animate-slideDown">
                             <div className="w-full max-w-5xl px-4 flex items-center gap-4">
                                 <div className="flex-1">
                                     <div className="flex items-center h-12 border border-[#7c1d85] rounded-full px-3 shadow-md bg-white">
@@ -184,33 +193,37 @@ export default function Header() {
                                 </span>
                                 <button
                                     onClick={() => setIsSidebarOpen(false)}
-                                    className="p-2 rounded-full hover:bg-gray-100 transition-colors text-[#7c1d85]"
+                                    className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#7c1d85]"
                                 >
                                     <X className="w-6 h-6" />
                                 </button>
                             </div>
 
                             <nav className="flex flex-col space-y-2">
-                                {menuItems.map((item, index) => (
-                                    <Link
-                                        key={index}
-                                        href={item.href}
-                                        onClick={() => setIsSidebarOpen(false)}
-                                        className="flex items-center justify-between p-4 rounded-xl transition-all font-medium text-lg
-                                            text-gray-800 hover:bg-[#7c1d85]/5 hover:text-[#7c1d85]"
-                                    >
-                                        {item.label}
-                                        <ChevronRight className="w-5 h-5 opacity-40" />
-                                    </Link>
-                                ))}
+                                {menuItems.map((item, index) => {
+                                    const isActive = pathname === item.href;
+                                    return (
+                                        <Link
+                                            key={index}
+                                            href={item.href}
+                                            onClick={() => setIsSidebarOpen(false)}
+                                            className={`flex items-center justify-between p-4 rounded-xl transition-all font-medium text-lg
+                                            ${isActive ? "bg-white/30 text-[#7c1d85] font-bold" : "text-[#7c1d85] hover:bg-white/20"}
+                                            `}
+                                        >
+                                            {item.label}
+                                            <ChevronRight className={`w-5 h-5 opacity-60 ${isActive ? "opacity-100" : ""}`} />
+                                        </Link>
+                                    );
+                                })}
                             </nav>
 
-                            <div className="mt-12 pt-8 border-t border-gray-100">
+                            <div className="mt-12 pt-8 border-t border-[#7c1d85]/10">
                                 <Link
                                     href="/contact"
                                     onClick={() => setIsSidebarOpen(false)}
                                     className="w-full block text-center py-4 rounded-full font-bold shadow-lg transition-transform hover:scale-105 active:scale-95
-                                        bg-[#ffeb0f] text-[#7c1d85]"
+                                        bg-[#7c1d85] text-white"
                                 >
                                     Book a Consultation
                                 </Link>
