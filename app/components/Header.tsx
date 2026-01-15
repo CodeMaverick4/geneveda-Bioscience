@@ -61,22 +61,12 @@ export default function Header() {
 
     return (
         <>
-            {/* ================= HEADER ================= */}
-            {/* 
-               Fixed Header: 
-               - Background: Yellow (#ffeb0f)
-               - Text/Icons: Purple (#7c1d85)
-               - Subtle Shadow
-            */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-[#ffeb0f] border-b border-[#7c1d85]/10 shadow-sm transition-all duration-300">
                 <div className="relative flex items-center justify-between max-w-7xl mx-auto px-6 py-4 min-h-[80px]">
-
-                    {/* MAIN HEADER CONTENT */}
                     <div
                         className={`flex items-center justify-between w-full transition-all duration-300
             ${isSearchOpen ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}`}
                     >
-                        {/* Menu Button */}
                         <button
                             onClick={() => setIsSidebarOpen(true)}
                             className="flex items-center gap-3 text-[#7c1d85] hover:opacity-75 transition-colors group"
@@ -85,7 +75,6 @@ export default function Header() {
                             <span className="text-sm font-bold uppercase tracking-wide group-hover:underline">Menu</span>
                         </button>
 
-                        {/* Logo */}
                         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                             <Link
                                 href="/"
@@ -95,7 +84,6 @@ export default function Header() {
                             </Link>
                         </div>
 
-                        {/* Right Actions */}
                         <div className="flex items-center gap-4 sm:gap-6 text-[#7c1d85]">
                             <button
                                 onClick={toggleTheme}
@@ -107,15 +95,6 @@ export default function Header() {
                             <button onClick={() => setIsSearchOpen(true)} className="hover:opacity-75 transition-opacity">
                                 <Search className="w-5 h-5" />
                             </button>
-
-                            {/* Contact CTA: Purple Background (#7c1d85), White Text for header button? No, user accepted header yellow. Keeping header button as is or updating?
-                               User request: "Header background yellow #ffeb0f, Text/icons purple #7c1d85" (Done)
-                               "Sidebar Button: Background purple #7c1d85, Text white" (This is sidebar button only)
-                               The header button was previously yellow with purple text. Since the header is now yellow, the button needs to contrast. 
-                               Let's make the header CTA button purple with white text too, or removed? 
-                               The prompt specifically said "Sidebar ke bottom mein jo “Book Consultation” button hai". It didn't explicitly ask to change the header CTA button, but yellow on yellow won't be visible.
-                               I will make the main header "Contact" button Purple bg + White text for visibility. 
-                            */}
                             <Link
                                 href="/contact"
                                 className="text-sm font-bold hidden sm:block transition-transform hover:scale-105 bg-[#7c1d85] text-white px-6 py-3 rounded-full shadow-md hover:shadow-lg"
@@ -130,7 +109,6 @@ export default function Header() {
                         </div>
                     </div>
 
-                    {/* ================= SEARCH OVERLAY ================= */}
                     {isSearchOpen && (
                         <div className="absolute inset-0 bg-[#ffeb0f] z-30 flex items-center justify-center animate-slideDown">
                             <div className="w-full max-w-5xl px-4 flex items-center gap-4">
@@ -166,7 +144,6 @@ export default function Header() {
                 </div>
             </header>
 
-            {/* ================= LEFT SIDEBAR ================= */}
             <AnimatePresence>
                 {isSidebarOpen && (
                     <>
@@ -179,7 +156,6 @@ export default function Header() {
                             className="fixed inset-0 bg-black z-[60]"
                         />
 
-                        {/* Drawer */}
                         <motion.div
                             initial={{ x: "-100%" }}
                             animate={{ x: 0 }}

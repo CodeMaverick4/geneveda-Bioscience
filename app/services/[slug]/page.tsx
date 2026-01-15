@@ -13,7 +13,6 @@ import {
     ArrowRight
 } from "lucide-react";
 
-// Data content for each service page
 const servicesData: any = {
     "rd": {
         title: "R&D Services",
@@ -119,7 +118,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
     return (
         <main className="bg-white text-black min-h-screen pt-20">
 
-            {/* Hero Section */}
             <section className="relative py-20 lg:py-32 overflow-hidden bg-gray-50 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <ScrollReveal>
@@ -147,7 +145,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 </div>
             </section>
 
-            {/* Features / Details */}
             <section className="py-24 max-w-7xl mx-auto px-6">
                 <ScrollReveal width="100%" className="mb-12">
                     <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Offerings</h2>
@@ -169,7 +166,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 </div>
             </section>
 
-            {/* CTA Banner */}
             <section className="py-16 bg-[#7c1d85] text-white my-12 mx-6 rounded-[3rem] text-center relative overflow-hidden">
                 <div className="relative z-10 max-w-4xl mx-auto">
                     <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Ready to Advance Your Research?</h2>
@@ -181,7 +177,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                     </AnimatedButton>
                 </div>
 
-                {/* Decor */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#ffeb0f] opacity-10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#ffeb0f] opacity-10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
             </section>

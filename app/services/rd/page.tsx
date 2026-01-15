@@ -85,7 +85,6 @@ export default function RDServicePage() {
     return (
         <main className="bg-white text-black min-h-screen">
 
-            {/* HERO SECTION */}
             <section className="relative py-20 lg:py-14 overflow-hidden bg-gray-50 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <ScrollReveal>
@@ -109,7 +108,6 @@ export default function RDServicePage() {
                     </ScrollReveal>
 
                     <ScrollReveal delay={0.2} className="relative h-[400px] w-full flex items-center mx-auto">
-                        {/* Abstract Visual Representation of R&D */}
                         <div className="relative w-64 h-64">
                             <div className="absolute inset-0 bg-[#ffeb0f]/20 rounded-full blur-3xl animate-pulse" />
                             <div className="absolute inset-4 bg-[#7c1d85]/10 rounded-full blur-2xl" />
@@ -125,7 +123,6 @@ export default function RDServicePage() {
                 </div>
             </section>
 
-            {/* SERVICE OFFERINGS GRID */}
             <section id="offerings" className="py-24 max-w-7xl mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Service Offerings</h2>
@@ -149,11 +146,9 @@ export default function RDServicePage() {
                 </div>
             </section>
 
-            {/* HOW WE WORK & HIGHLIGHTS */}
             <section className="py-24 bg-gray-50 border-y border-gray-100">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20">
 
-                    {/* Process */}
                     <div>
                         <ScrollReveal>
                             <h2 className="text-3xl font-bold text-gray-900 mb-12">How We Work</h2>
@@ -174,7 +169,6 @@ export default function RDServicePage() {
                         </ScrollReveal>
                     </div>
 
-                    {/* Why Choose Us */}
                     <div>
                         <ScrollReveal delay={0.2}>
                             <h2 className="text-3xl font-bold text-gray-900 mb-12">Why Choose GeneVeda?</h2>
@@ -203,7 +197,6 @@ export default function RDServicePage() {
                 </div>
             </section>
 
-            {/* CTA BANNER */}
             <section className="py-12 px-6">
                 <div className="max-w-7xl mx-auto bg-[#7c1d85] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
                     <div className="relative z-10">
@@ -221,7 +214,6 @@ export default function RDServicePage() {
                 </div>
             </section>
 
-            {/* MINI FAQ SECTION */}
             <section className="py-24 max-w-4xl mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-gray-900">Common Questions</h2>

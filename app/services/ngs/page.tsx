@@ -21,8 +21,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function NGSPage() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-    // 1. Services Grid Data
     const services = [
         {
             title: "Library Preparation Guidance",
@@ -56,7 +54,6 @@ export default function NGSPage() {
         }
     ];
 
-    // 2. Workflow Steps
     const workflow = [
         { title: "Sample Collection", desc: "Guidance on sample isolation and preservation." },
         { title: "Sequencing", desc: "High-throughput sequencing using state-of-the-art platforms." },
@@ -64,7 +61,6 @@ export default function NGSPage() {
         { title: "Final Report", desc: "Delivery of actionable insights and publication-ready figures." },
     ];
 
-    // 3. Applications Grid
     const applications = [
         "Cancer & Precision Medicine",
         "Microbial Genomics / AMR",
@@ -74,7 +70,6 @@ export default function NGSPage() {
         "Biomarker Research"
     ];
 
-    // 4. Why Choose Us
     const highlights = [
         "Research-driven guidance from PhD experts",
         "Publication-ready outputs & figures",
@@ -82,7 +77,6 @@ export default function NGSPage() {
         "Fast turnaround + mentorship support"
     ];
 
-    // 5. FAQ Data
     const faqs = [
         {
             question: "Which sequencing platform do you recommend?",
@@ -101,7 +95,6 @@ export default function NGSPage() {
     return (
         <main className="bg-white text-black min-h-screen">
 
-            {/* HERO SECTION */}
             <section className="relative py-20 lg:py-14 overflow-hidden bg-gray-50 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <ScrollReveal>
@@ -159,7 +152,6 @@ export default function NGSPage() {
                 </div>
             </section>
 
-            {/* SERVICES GRID */}
             <section className="py-24 max-w-7xl mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Sequencing Services</h2>
@@ -183,7 +175,6 @@ export default function NGSPage() {
                 </div>
             </section>
 
-            {/* WORKFLOW STEPS */}
             <section className="py-24 bg-gray-50 border-y border-gray-100">
                 <div className="max-w-7xl mx-auto px-6">
                     <ScrollReveal width="100%" className="text-center mb-16">
@@ -207,10 +198,7 @@ export default function NGSPage() {
                 </div>
             </section>
 
-            {/* APPLICATIONS & WHY CHOOSE US */}
             <section className="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
-
-                {/* Applications Grid */}
                 <div>
                     <ScrollReveal>
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">Key Applications</h2>
@@ -225,7 +213,6 @@ export default function NGSPage() {
                     </ScrollReveal>
                 </div>
 
-                {/* Why Choose Us */}
                 <div>
                     <ScrollReveal delay={0.2}>
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">Why Choose GeneVeda?</h2>
@@ -245,7 +232,6 @@ export default function NGSPage() {
                 </div>
             </section>
 
-            {/* CTA BANNER */}
             <section className="py-12 px-6">
                 <div className="max-w-7xl mx-auto bg-[#7c1d85] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
                     <div className="relative z-10">
@@ -257,13 +243,12 @@ export default function NGSPage() {
                             Book a Call
                         </AnimatedButton>
                     </div>
-                    {/* Decorative Circles */}
                     <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
                     <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#ffeb0f]/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
                 </div>
             </section>
 
-            {/* MINI FAQ SECTION */}
+
             <section className="py-24 max-w-4xl mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-gray-900">Common Questions</h2>

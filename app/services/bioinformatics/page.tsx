@@ -83,7 +83,6 @@ export default function BioinformaticsPage() {
     return (
         <main className="bg-white text-black min-h-screen">
 
-            {/* HERO SECTION */}
             <section className="relative py-20 lg:py-14 overflow-hidden bg-gray-50 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <ScrollReveal>
@@ -112,7 +111,6 @@ export default function BioinformaticsPage() {
                             <div className="absolute inset-4 bg-[#7c1d85]/10 rounded-full blur-2xl" />
                             <Database className="absolute inset-0 m-auto w-32 h-32 text-[#7c1d85] drop-shadow-2xl" />
 
-                            {/* Floating Elements */}
                             <motion.div
                                 animate={{ y: [0, -20, 0] }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -133,7 +131,6 @@ export default function BioinformaticsPage() {
                 </div>
             </section>
 
-            {/* SERVICE OFFERINGS GRID */}
             <section id="offerings" className="py-24 max-w-7xl mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Analytic Capabilities</h2>
@@ -157,7 +154,6 @@ export default function BioinformaticsPage() {
                 </div>
             </section>
 
-            {/* TOOLS & PLATFORMS */}
             <section className="py-16 bg-[#7c1d85]/5 border-y border-[#7c1d85]/10">
                 <div className="max-w-7xl mx-auto px-6 text-center">
                     <ScrollReveal width="100%">
@@ -176,7 +172,6 @@ export default function BioinformaticsPage() {
                 </div>
             </section>
 
-            {/* HOW WE WORK */}
             <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
                     <ScrollReveal width="100%" className="text-center mb-16">
@@ -190,7 +185,6 @@ export default function BioinformaticsPage() {
                                     <div className="w-16 h-16 rounded-full bg-[#fdfcec] border-2 border-[#ffeb0f] flex items-center justify-center text-2xl font-bold text-[#7c1d85] mb-6 group-hover:bg-[#ffeb0f] transition-colors relative z-10">
                                         {i + 1}
                                     </div>
-                                    {/* Connector Line (Desktop) */}
                                     {i < steps.length - 1 && (
                                         <div className="hidden lg:block absolute top-14 left-[50%] w-full h-1 bg-gray-100 -z-0" />
                                     )}
@@ -204,7 +198,6 @@ export default function BioinformaticsPage() {
                 </div>
             </section>
 
-            {/* CTA BANNER */}
             <section className="py-12 px-6">
                 <div className="max-w-7xl mx-auto bg-[#7c1d85] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
                     <div className="relative z-10">
@@ -222,7 +215,6 @@ export default function BioinformaticsPage() {
                 </div>
             </section>
 
-            {/* MINI FAQ SECTION */}
             <section className="py-24 max-w-4xl mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-gray-900">Common Questions</h2>

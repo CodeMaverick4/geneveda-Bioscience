@@ -75,7 +75,6 @@ export default function StudyAbroadPage() {
         }
     ];
 
-    // Data for the EXPANDED "How Study Abroad Works" section (6 Items)
     const journeySteps = [
         {
             title: "Explore Your Options",
@@ -124,7 +123,6 @@ export default function StudyAbroadPage() {
     return (
         <main className="bg-white text-black min-h-screen">
 
-            {/* HERO SECTION */}
             <section className="relative py-20 lg:py-14 overflow-hidden bg-gray-50 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <ScrollReveal>
@@ -146,16 +144,13 @@ export default function StudyAbroadPage() {
 
                     <ScrollReveal delay={0.2} className="relative h-[400px] w-full flex items-center mx-auto justify-center">
                         <div className="relative w-80 h-80">
-                            {/* Visual */}
                             <div className="absolute inset-0 bg-[#ffeb0f]/20 rounded-full blur-3xl animate-pulse" />
                             <div className="absolute inset-4 bg-[#7c1d85]/10 rounded-full blur-2xl" />
 
-                            {/* Central Icon */}
                             <div className="absolute inset-0 m-auto w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-xl border border-gray-100 z-10">
                                 <Globe className="w-20 h-20 text-[#7c1d85]" />
                             </div>
 
-                            {/* Orbiting Elements */}
                             <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -173,7 +168,6 @@ export default function StudyAbroadPage() {
                 </div>
             </section>
 
-            {/* YOUR JOURNEY / HOW IT WORKS (UPDATED 6 STEPS) */}
             <section className="py-24 max-w-7xl mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-[#0f2e3d] mb-6 uppercase tracking-wide">
@@ -185,7 +179,6 @@ export default function StudyAbroadPage() {
                     {journeySteps.map((item, index) => (
                         <ScrollReveal key={index} delay={index * 0.1} className="flex flex-col items-center text-center group h-full relative">
 
-                            {/* Icon (GIF) */}
                             <div className="mb-6 relative w-16 h-16 transform transition-transform duration-300 group-hover:scale-110">
                                 <Image
                                     src={item.icon}
@@ -206,7 +199,6 @@ export default function StudyAbroadPage() {
                                 {item.cta}
                             </a>
 
-                            {/* Vertical Divider (Desktop only, for items not in last column) */}
                             {(index + 1) % 3 !== 0 && (
                                 <div className="hidden lg:block absolute right-0 top-10 bottom-10 w-[1px] bg-gray-100" style={{ right: '-1.5rem' }} />
                             )}
@@ -215,7 +207,6 @@ export default function StudyAbroadPage() {
                 </div>
             </section>
 
-            {/* SERVICES GRID */}
             <section className="py-24 max-w-7xl mx-auto px-6 bg-gray-50/50">
                 <ScrollReveal width="100%" className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Expert Services</h2>
@@ -246,7 +237,6 @@ export default function StudyAbroadPage() {
                 </div>
             </section>
 
-            {/* DESTINATIONS CAROUSEL (NEW AUTO SLIDER) */}
             <section className="py-24 bg-white border-y border-gray-100 overflow-hidden">
                 <ScrollReveal width="100%" className="text-center mb-16">
                     <h2 className="text-3xl font-bold text-gray-900 mb-4">Destinations We Cover</h2>
@@ -254,13 +244,10 @@ export default function StudyAbroadPage() {
                 </ScrollReveal>
 
                 <div className="relative w-full overflow-hidden">
-                    {/* Gradient Overlay for Fade Effect */}
                     <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
                     <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
-                    {/* Marquee Container */}
                     <div className="flex animate-marquee hover:[animation-play-state:paused] w-max gap-8 px-8">
-                        {/* Duplicate lists for seamless loop */}
                         {[...destinations, ...destinations, ...destinations].map((country, i) => (
                             <div
                                 key={i}
@@ -278,7 +265,6 @@ export default function StudyAbroadPage() {
                                         {country.name}
                                     </span>
                                 </div>
-                                {/* Highlight Overlay on Hover */}
                                 <div className="absolute inset-0 bg-[#7c1d85]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </div>
                         ))}
@@ -286,7 +272,6 @@ export default function StudyAbroadPage() {
                 </div>
             </section>
 
-            {/* CTA BANNER */}
             <section className="py-12 px-6">
                 <div className="max-w-7xl mx-auto bg-[#7c1d85] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
                     <div className="relative z-10">
@@ -298,13 +283,11 @@ export default function StudyAbroadPage() {
                             Book a Consultation
                         </AnimatedButton>
                     </div>
-                    {/* Decorative Circles */}
                     <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
                     <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#ffeb0f]/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
                 </div>
             </section>
 
-            {/* MINI FAQ SECTION */}
             <section className="py-24 max-w-4xl mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-gray-900">Common Questions</h2>

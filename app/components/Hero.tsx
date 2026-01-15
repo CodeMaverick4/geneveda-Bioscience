@@ -7,7 +7,6 @@ export default function Hero() {
     return (
         <section className="relative w-full overflow-hidden bg-white min-h-[calc(100vh-80px)] flex items-center transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6 w-full relative z-10 py-12 lg:py-0">
-                {/* Center Content */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -43,7 +42,6 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            {/* Background Decorative Elements */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#7c1d85]/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#ffeb0f]/10 rounded-full blur-[100px] -z-10 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
         </section>

@@ -15,8 +15,6 @@ const stats = [
 export default function AboutPage() {
     return (
         <main className="bg-white text-black min-h-screen">
-
-            {/* 1. Header Section */}
             <section className="relative py-20 overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <ScrollReveal>
@@ -47,7 +45,6 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* 2. Stats Section */}
             <section className="py-16 bg-[#7c1d85] text-white">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
                     {stats.map((stat, i) => (
@@ -59,14 +56,12 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* 3. Detailed Offerings (What we do) */}
             <section className="py-24 max-w-7xl mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-20">
                     <h2 className="text-3xl md:text-5xl font-bold text-gray-900">What We Do</h2>
                 </ScrollReveal>
 
                 <div className="space-y-24">
-                    {/* R&D */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="order-2 md:order-1">
                             <div className="w-16 h-16 bg-[#ffeb0f]/20 rounded-2xl flex items-center justify-center mb-6">
@@ -88,7 +83,6 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    {/* Bioinformatics */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[350px] rounded-3xl overflow-hidden shadow-xl group">
                             <Image
@@ -110,7 +104,6 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    {/* Study Abroad */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="order-2 md:order-1">
                             <div className="w-16 h-16 bg-[#ffeb0f]/20 rounded-2xl flex items-center justify-center mb-6">

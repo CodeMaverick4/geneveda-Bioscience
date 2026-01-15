@@ -42,7 +42,6 @@ export default function Process() {
                 </ScrollReveal>
 
                 <div className="relative">
-                    {/* Connector Line (Desktop) */}
                     <div className="hidden lg:block absolute top-[60px] left-0 w-full h-1 bg-gray-100 -translate-y-1/2 z-0">
                         <div className="h-full bg-gradient-to-r from-[#7c1d85]/0 via-[#7c1d85]/20 to-[#7c1d85]/0" />
                     </div>
@@ -55,8 +54,6 @@ export default function Process() {
                                         <div className="w-20 h-20 bg-[#7c1d85] text-white rounded-full flex items-center justify-center text-3xl transition-transform group-hover:scale-110">
                                             <step.icon className="w-8 h-8" />
                                         </div>
-
-                                        {/* Step Number Bubble */}
                                         <div className="absolute -top-2 -right-2 w-10 h-10 bg-[#ffeb0f] rounded-full flex items-center justify-center text-black font-bold text-sm shadow-md border-2 border-white">
                                             {step.id}
                                         </div>

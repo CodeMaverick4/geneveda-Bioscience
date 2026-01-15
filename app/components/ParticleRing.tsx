@@ -8,19 +8,12 @@ export default function ParticleRing() {
 
     useEffect(() => {
         if (!mountRef.current) return;
-
-        // SCENE
         const scene = new THREE.Scene();
-
-        // DIMENSIONS
         let width = mountRef.current.clientWidth;
         let height = mountRef.current.clientHeight;
-
-        // CAMERA
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-        camera.position.z = 80; // Adjusted for container view
+        camera.position.z = 80;
 
-        // RENDERER
         const renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: true,
@@ -28,24 +21,22 @@ export default function ParticleRing() {
         renderer.setSize(width, height);
         mountRef.current.appendChild(renderer.domElement);
 
-        // PARTICLES
         const count = 2000;
         const radius = 35;
         const positions = new Float32Array(count * 3);
         const colors = new Float32Array(count * 3);
 
-        const color1 = new THREE.Color("#7c1d85"); // Primary Purple
-        const color2 = new THREE.Color("#ffeb0f"); // Accent Yellow
+        const color1 = new THREE.Color("#7c1d85");
+        const color2 = new THREE.Color("#ffeb0f");
 
         for (let i = 0; i < count; i++) {
             const angle = Math.random() * Math.PI * 2;
-            const r = radius + (Math.random() - 0.5) * 8; // Thicker band
+            const r = radius + (Math.random() - 0.5) * 8;
 
             positions[i * 3] = Math.cos(angle) * r;
             positions[i * 3 + 1] = Math.sin(angle) * r;
             positions[i * 3 + 2] = (Math.random() - 0.5) * 15;
 
-            // Mix colors
             const mixedColor = Math.random() > 0.5 ? color1 : color2;
             colors[i * 3] = mixedColor.r;
             colors[i * 3 + 1] = mixedColor.g;
@@ -68,7 +59,6 @@ export default function ParticleRing() {
         const ring = new THREE.Points(geometry, material);
         scene.add(ring);
 
-        // MOUSE
         const mouse = { x: 0, y: 0 };
         const onMouseMove = (e: MouseEvent) => {
             mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -76,7 +66,6 @@ export default function ParticleRing() {
         };
         window.addEventListener("mousemove", onMouseMove);
 
-        // ANIMATE
         let frameId: number;
         const animate = () => {
             frameId = requestAnimationFrame(animate);
@@ -89,7 +78,6 @@ export default function ParticleRing() {
         };
         animate();
 
-        // RESIZE
         const resizeObserver = new ResizeObserver((entries) => {
             for (let entry of entries) {
                 if (entry.target === mountRef.current) {
@@ -105,7 +93,6 @@ export default function ParticleRing() {
 
         resizeObserver.observe(mountRef.current);
 
-        // CLEANUP
         return () => {
             cancelAnimationFrame(frameId);
             window.removeEventListener("mousemove", onMouseMove);

@@ -7,7 +7,6 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
-                    {/* Brand & Info */}
                     <div>
                         <Link href="/" className="text-3xl font-bold tracking-tight mb-6 block text-[#ffeb0f]">
                             GeneVeda
@@ -23,7 +22,6 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Quick Links */}
                     <div>
                         <h4 className="text-lg font-bold mb-6 text-[#ffeb0f]">Services</h4>
                         <ul className="space-y-4 text-gray-300 font-medium">
@@ -46,7 +44,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contact */}
                     <div>
                         <h4 className="text-lg font-bold mb-6 text-[#ffeb0f]">Contact Us</h4>
                         <ul className="space-y-4 text-gray-300 font-medium">

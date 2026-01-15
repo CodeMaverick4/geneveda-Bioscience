@@ -41,12 +41,9 @@ export default function IndustriesSection() {
     return (
         <section className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-6">
-                {/* Title */}
                 <h2 className="text-4xl md:text-5xl font-light text-center mb-16 text-gray-900">
                     Industries we serve
                 </h2>
-
-                {/* Tabs */}
                 <div className="flex flex-wrap justify-center gap-4 mb-20">
                     {tabs.map((tab) => {
                         const Icon = tab.icon;
@@ -68,7 +65,6 @@ export default function IndustriesSection() {
                     })}
                 </div>
 
-                {/* Stats Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {stats.map((stat, index) => (
                         <div
