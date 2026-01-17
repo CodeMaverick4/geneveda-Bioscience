@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="font-sans antialiased bg-white dark:bg-[#0b0f14] text-black dark:text-white transition-colors duration-300">
+      <body className="font-sans antialiased bg-white text-gray-900 transition-colors duration-300">
         <Header />
         <main className="min-h-screen pt-[80px]">
           {children}

@@ -54,8 +54,8 @@ export default function IndustriesSection() {
                                 onMouseEnter={() => setActiveTab(tab.name)}
                                 className={`flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all duration-300
                   ${activeTab === tab.name
-                                        ? "bg-[#7c1d85] text-white border-[#7c1d85]"
-                                        : "bg-white text-[#7c1d85] border-[#7c1d85] hover:bg-purple-50"
+                                        ? "bg-primary-500 text-white border-primary-500"
+                                        : "bg-white text-primary-500 border-primary-500 hover:bg-primary-50"
                                     }`}
                             >
                                 <Icon className="w-5 h-5" />
@@ -73,10 +73,10 @@ export default function IndustriesSection() {
                                 }`}
                         >
                             <div className="flex items-baseline gap-2 group cursor-pointer">
-                                <span className="text-4xl font-normal text-[#7c1d85]">
+                                <span className="text-4xl font-normal text-primary-500">
                                     {stat.value}
                                 </span>
-                                <span className="text-[#7c1d85] text-2xl transition-transform group-hover:translate-x-1">
+                                <span className="text-primary-500 text-2xl transition-transform group-hover:translate-x-1">
                                     →
                                 </span>
                             </div>

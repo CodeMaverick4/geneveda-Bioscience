@@ -42,12 +42,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #7c1d85;
+  background-color: oklch(72.3% .219 149.579); /* primary-500 */
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #5b1561;
+  background-color: oklch(62% .219 149.579); /* primary-600 */
 }
 
 /* Marquee Animation */

@@ -17,48 +17,35 @@ const items = [
 
 export default function PartnersSlider() {
     return (
-        <section className="py-12 bg-gray-50/50 border-b border-gray-100 overflow-hidden">
+        <section className="py-12 bg-white border-b border-gray-100 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
-                <p className="text-sm font-bold text-[#7c1d85] uppercase tracking-widest bg-[#7c1d85]/5 inline-block px-4 py-1 rounded-full">
+                <p className="text-sm font-bold text-primary-500 uppercase tracking-widest bg-primary-50 inline-block px-4 py-1 rounded-full">
                     Technologies & Services We Power
                 </p>
             </div>
 
-            <div className="relative w-full overflow-hidden group">
-                <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-                <div className="flex animate-marquee gap-8">
-                    <div className="flex gap-8 items-center">
-                        {items.map((item, index) => (
-                            <div
-                                key={`a-${index}`}
-                                className="flex items-center gap-3 px-6 py-4 rounded-xl bg-white  shadow-sm transition-all hover:border-[#7c1d85] hover:shadow-md  cursor-default group/card"
-                            >
-                                <div className="p-2 bg-[#7c1d85]/5 rounded-lg group-hover/card:bg-[#7c1d85] transition-colors">
-                                    <item.icon className="w-5 h-5 text-[#7c1d85] group-hover/card:text-white transition-colors" />
-                                </div>
-                                <span className="text-lg font-bold text-gray-700 whitespace-nowrap">
-                                    {item.name}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
+            <div className="relative w-full overflow-hidden">
+                <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
 
-                    <div className="flex gap-8 items-center">
-                        {items.map((item, index) => (
-                            <div
-                                key={`b-${index}`}
-                                className="flex items-center gap-3 px-6 py-4 rounded-xl bg-white border border-gray-200 shadow-sm transition-all hover:border-[#7c1d85] hover:shadow-md hover:-translate-y-1 cursor-default group/card"
-                            >
-                                <div className="p-2 bg-[#7c1d85]/5 rounded-lg group-hover/card:bg-[#7c1d85] transition-colors">
-                                    <item.icon className="w-5 h-5 text-[#7c1d85] group-hover/card:text-white transition-colors" />
+                <div className="flex animate-marquee gap-8 w-max">
+                    {[...Array(2)].map((_, i) => (
+                        <div key={i} className="flex gap-8 items-center shrink-0">
+                            {items.map((item, index) => (
+                                <div
+                                    key={`${i}-${index}`}
+                                    className="flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-gray-100 shadow-sm transition-all hover:border-primary-200 hover:shadow-md cursor-default group/card"
+                                >
+                                    <div className="p-1.5 bg-primary-50 rounded-full group-hover/card:bg-primary-500 transition-colors">
+                                        <item.icon className="w-4 h-4 text-primary-600 group-hover/card:text-white transition-colors" />
+                                    </div>
+                                    <span className="text-sm font-bold text-gray-700 whitespace-nowrap">
+                                        {item.name}
+                                    </span>
                                 </div>
-                                <span className="text-lg font-bold text-gray-700 whitespace-nowrap">
-                                    {item.name}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

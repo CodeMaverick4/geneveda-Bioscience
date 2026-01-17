@@ -30,91 +30,68 @@ const menuItems = [
 export default function Header() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-    const [theme, setTheme] = useState("light");
     const pathname = usePathname();
-
-    // Initialize Theme
-    useEffect(() => {
-        setIsMounted(true);
-        if (typeof window !== "undefined") {
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme) {
-                setTheme(savedTheme);
-                document.documentElement.classList.toggle("dark", savedTheme === "dark");
-            } else {
-                const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                setTheme(systemDark ? "dark" : "light");
-                document.documentElement.classList.toggle("dark", systemDark);
-            }
-        }
-    }, []);
-
-    const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        document.documentElement.classList.toggle("dark", newTheme === "dark");
-        localStorage.setItem("theme", newTheme);
-    };
-
-    if (!isMounted) return null;
 
     return (
         <>
-            <header className="fixed top-0 left-0 right-0 z-50 bg-[#ffeb0f] border-b border-[#7c1d85]/10 shadow-sm transition-all duration-300">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm transition-all duration-300">
                 <div className="relative flex items-center justify-between max-w-7xl mx-auto px-6 py-4 min-h-[80px]">
                     <div
                         className={`flex items-center justify-between w-full transition-all duration-300
             ${isSearchOpen ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}`}
                     >
-                        <button
-                            onClick={() => setIsSidebarOpen(true)}
-                            className="flex items-center gap-3 text-[#7c1d85] hover:opacity-75 transition-colors group"
-                        >
-                            <Menu className="w-6 h-6" />
-                            <span className="text-sm font-bold uppercase tracking-wide group-hover:underline">Menu</span>
-                        </button>
-
-                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        {/* Logo */}
+                        <div className="flex-shrink-0">
                             <Link
                                 href="/"
-                                className="text-3xl tracking-tight font-bold text-[#7c1d85] hover:opacity-90 transition-opacity"
+                                className="text-3xl tracking-tight font-bold text-primary-500 hover:opacity-90 transition-opacity"
                             >
                                 GeneVeda
                             </Link>
                         </div>
 
-                        <div className="flex items-center gap-4 sm:gap-6 text-[#7c1d85]">
-                            <button
-                                onClick={toggleTheme}
-                                className="p-2 rounded-full hover:bg-[#7c1d85]/5 transition-colors"
-                            >
-                                {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-                            </button>
+                        {/* Desktop Navigation */}
+                        <nav className="hidden lg:flex items-center gap-8">
+                            {menuItems.map((item, index) => {
+                                const isActive = pathname === item.href;
+                                return (
+                                    <Link
+                                        key={index}
+                                        href={item.href}
+                                        className={`text-sm font-medium transition-colors hover:text-primary-500
+                                        ${isActive ? "text-primary-500 font-bold" : "text-gray-600"}`}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                );
+                            })}
+                        </nav>
 
-                            <button onClick={() => setIsSearchOpen(true)} className="hover:opacity-75 transition-opacity">
+                        {/* Right Actions */}
+                        <div className="flex items-center gap-4">
+                            <button
+                                onClick={() => setIsSearchOpen(true)}
+                                className="p-2 text-gray-400 hover:text-primary-500 hover:bg-primary-50 rounded-full transition-all"
+                            >
                                 <Search className="w-5 h-5" />
                             </button>
-                            <Link
-                                href="/contact"
-                                className="text-sm font-bold hidden sm:block transition-transform hover:scale-105 bg-[#7c1d85] text-white px-6 py-3 rounded-full shadow-md hover:shadow-lg"
-                            >
-                                Contact
-                            </Link>
 
-                            <button className="flex items-center gap-2 hover:opacity-75 transition-opacity">
-                                <Globe className="w-5 h-5" />
-                                <span className="text-sm font-medium">IN</span>
+                            {/* Mobile Menu Button */}
+                            <button
+                                onClick={() => setIsSidebarOpen(true)}
+                                className="lg:hidden flex items-center justify-center p-2 text-primary-500 hover:bg-primary-50 rounded-full transition-colors"
+                            >
+                                <Menu className="w-6 h-6" />
                             </button>
                         </div>
                     </div>
 
                     {isSearchOpen && (
-                        <div className="absolute inset-0 bg-[#ffeb0f] z-30 flex items-center justify-center animate-slideDown">
+                        <div className="absolute inset-0 bg-white z-30 flex items-center justify-center animate-slideDown border-b border-gray-100">
                             <div className="w-full max-w-5xl px-4 flex items-center gap-4">
                                 <div className="flex-1">
-                                    <div className="flex items-center h-12 border border-[#7c1d85] rounded-full px-3 shadow-md bg-white">
-                                        <button className="flex items-center gap-2 pr-3 border-r border-[#7c1d85]/20 text-sm text-[#7c1d85]">
+                                    <div className="flex items-center h-12 border border-primary-500 rounded-full px-3 shadow-md bg-white">
+                                        <button className="flex items-center gap-2 pr-3 border-r border-gray-200 text-sm text-gray-500">
                                             <Check className="w-4 h-4" />
                                             Search all
                                             <ChevronDown className="w-4 h-4" />
@@ -129,13 +106,13 @@ export default function Header() {
                                             />
                                         </div>
 
-                                        <button className="bg-[#7c1d85] text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-[#6a1970] transition-colors">
+                                        <button className="bg-primary-500 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-primary-600 transition-colors">
                                             Search
                                         </button>
                                     </div>
                                 </div>
 
-                                <button onClick={() => setIsSearchOpen(false)} className="text-[#7c1d85] hover:opacity-75 transition-colors">
+                                <button onClick={() => setIsSearchOpen(false)} className="text-gray-500 hover:text-red-500 transition-colors">
                                     <X className="w-6 h-6" />
                                 </button>
                             </div>
@@ -161,15 +138,15 @@ export default function Header() {
                             animate={{ x: 0 }}
                             exit={{ x: "-100%" }}
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                            className={`fixed top-0 left-0 bottom-0 w-[85%] max-w-sm z-[70] shadow-2xl p-6 overflow-y-auto bg-[#ffeb0f] border-r-4 border-[#ffeb0f]`}
+                            className={`fixed top-0 left-0 bottom-0 w-[85%] max-w-sm z-[70] shadow-2xl p-6 overflow-y-auto bg-primary-50 border-r border-primary-200`}
                         >
                             <div className="flex items-center justify-between mb-8">
-                                <span className="text-2xl font-bold text-[#7c1d85]">
+                                <span className="text-2xl font-bold text-primary-500">
                                     GeneVeda
                                 </span>
                                 <button
                                     onClick={() => setIsSidebarOpen(false)}
-                                    className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#7c1d85]"
+                                    className="p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-500"
                                 >
                                     <X className="w-6 h-6" />
                                 </button>
@@ -184,7 +161,7 @@ export default function Header() {
                                             href={item.href}
                                             onClick={() => setIsSidebarOpen(false)}
                                             className={`flex items-center justify-between p-4 rounded-xl transition-all font-medium text-lg
-                                            ${isActive ? "bg-white/30 text-[#7c1d85] font-bold" : "text-[#7c1d85] hover:bg-white/20"}
+                                            ${isActive ? "bg-primary-50 text-primary-500 font-bold" : "text-gray-600 hover:bg-gray-50"}
                                             `}
                                         >
                                             {item.label}
@@ -193,17 +170,6 @@ export default function Header() {
                                     );
                                 })}
                             </nav>
-
-                            <div className="mt-12 pt-8 border-t border-[#7c1d85]/10">
-                                <Link
-                                    href="/contact"
-                                    onClick={() => setIsSidebarOpen(false)}
-                                    className="w-full block text-center py-4 rounded-full font-bold shadow-lg transition-transform hover:scale-105 active:scale-95
-                                        bg-[#7c1d85] text-white"
-                                >
-                                    Book a Consultation
-                                </Link>
-                            </div>
                         </motion.div>
                     </>
                 )}

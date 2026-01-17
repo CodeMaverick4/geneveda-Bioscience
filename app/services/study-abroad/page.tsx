@@ -35,7 +35,7 @@ export default function StudyAbroadPage() {
         {
             title: "Scholarships & Funding",
             desc: "Guidance on identifying and applying for external scholarships and financial aid.",
-            icon: "/remote-worker.gif"
+            icon: "/wallet.gif"
         },
         {
             title: "Interview Preparation",
@@ -88,35 +88,35 @@ export default function StudyAbroadPage() {
             desc: "Select a program that best fits your goals. Consider rankings, location, curriculum, and cultural experiences to make an informed decision.",
             cta: "CHOOSE",
             href: "/contact",
-            icon: "/remote-worker.gif"
+            icon: "/selection.gif"
         },
         {
             title: "Submit an Application",
             desc: "Complete your applications with our guidance. We help you organzie documents, write essays, and meet every deadline required.",
             cta: "APPLY",
             href: "/contact",
-            icon: "/search.gif"
+            icon: "/box.gif"
         },
         {
             title: "Funding Your Program",
             desc: "Explore scholarships, grants, and loan options. We assist in identifying financial aid opportunities to make your education affordable.",
             cta: "FIND FUNDS",
             href: "/contact",
-            icon: "/remote-worker.gif"
+            icon: "/wallet.gif"
         },
         {
             title: "Prepare to Travel",
             desc: "Get ready for your journey with visa counseling, accommodation assistance, and pre-departure briefings on life abroad.",
             cta: "PREPARE",
             href: "/contact",
-            icon: "/search.gif"
+            icon: "/travel.gif"
         },
         {
             title: "Embark on Your Journey",
             desc: "Fly to your destination with confidence. We provide arrival support and connect you with alumni networks for a smooth transition.",
             cta: "FLY",
             href: "/contact",
-            icon: "/remote-worker.gif"
+            icon: "/ticket.gif"
         }
     ];
 

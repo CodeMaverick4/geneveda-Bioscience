@@ -32,7 +32,7 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="py-24 bg-white dark:bg-white transition-colors duration-300">
+        <section className="py-24 bg-white transition-colors duration-300">
             <div className="max-w-4xl mx-auto px-6">
                 <ScrollReveal width="100%" className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -45,21 +45,21 @@ export default function FAQ() {
                     {faqs.map((faq, index) => (
                         <ScrollReveal key={index} delay={index * 0.1} width="100%">
                             <div
-                                className={`w-full bg-white rounded-[1.5rem] border overflow-hidden transition-all duration-300 border-black ${openIndex === index ? "shadow-lg bg-gray-50" : "shadow-sm hover:bg-gray-50"
+                                className={`w-full bg-white rounded-[1.5rem] border overflow-hidden transition-all duration-300 ${openIndex === index ? "border-primary-500 ring-4 ring-primary-50 shadow-xl bg-white" : "border-gray-100 shadow-sm hover:border-primary-200 hover:shadow-md"
                                     }`}
                             >
                                 <button
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                     className="w-full flex items-center justify-between p-6 px-8 text-left gap-4"
                                 >
-                                    <span className={`text-lg font-bold transition-colors ${openIndex === index ? "text-[#7c1d85]" : "text-gray-900"
+                                    <span className={`text-lg font-bold transition-colors ${openIndex === index ? "text-primary-600" : "text-gray-900"
                                         }`}>
                                         {faq.question}
                                     </span>
 
                                     <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${openIndex === index
-                                        ? "bg-[#7c1d85] text-white"
-                                        : "bg-gray-100 text-black border border-black/20"
+                                        ? "bg-primary-500 text-white"
+                                        : "bg-gray-100 text-gray-500 border border-gray-200"
                                         }`}>
                                         <AnimatePresence mode="wait" initial={false}>
                                             {openIndex === index ? (

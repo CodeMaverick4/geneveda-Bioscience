@@ -8,6 +8,15 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            colors: {
+                primary: {
+                    50: 'oklch(98.2% .018 155.826)',
+                    100: 'oklch(96.2% .044 156.743)',
+                    200: 'oklch(92.5% .084 155.995)',
+                    500: 'oklch(72.3% .219 149.579)',
+                    600: 'oklch(62% .219 149.579)', // Darker variant for hover
+                },
+            },
             fontFamily: {
                 sans: ["Hanken Grotesk", "system-ui", "sans-serif"],
             },
