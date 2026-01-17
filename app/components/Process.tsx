@@ -6,69 +6,78 @@ import ScrollReveal from "./ScrollReveal";
 const steps = [
     {
         id: "01",
-        title: "Consult",
-        description: "Discuss your goals and requirements with our experts.",
+        title: "Consultation",
+        description: "We discuss your specific research goals, career objectives, or project requirements in detail.",
         icon: MessageSquare,
     },
     {
         id: "02",
-        title: "Plan",
-        description: "We design a tailored roadmap for your project or career path.",
+        title: "Strategy",
+        description: "Our experts design a tailored roadmap, selecting the right tools and methodologies.",
         icon: ClipboardList,
     },
     {
         id: "03",
-        title: "Execute",
-        description: "Implementation using advanced tools and methodologies.",
+        title: "Execution",
+        description: "We implement the project using advanced bioinformatics pipelines or training modules.",
         icon: PenTool,
     },
     {
         id: "04",
-        title: "Deliver",
-        description: "Receive high-quality results, reports, or guidance.",
+        title: "Delivery",
+        description: "You receive high-quality, publication-ready results or certification.",
         icon: CheckCircle,
     },
 ];
 
 export default function Process() {
     return (
-        <section className="py-24 bg-white relative">
-            <div className="max-w-7xl mx-auto px-6">
-                <ScrollReveal width="100%" className="text-center mb-20">
-                    <span className="text-primary-500 font-bold tracking-wider text-sm uppercase bg-primary-50 px-4 py-2 rounded-full">How We Work</span>
-                    <h2 className="mt-6 text-3xl md:text-5xl font-bold text-gray-900">
-                        Streamlined Process
+        <section className="py-24 bg-[#f7fbf7] relative overflow-hidden">
+            {/* Soft background glow */}
+            <div className="absolute top-[-140px] right-[-140px] w-[420px] h-[420px] bg-emerald-200/35 rounded-full blur-[90px] -z-10" />
+            <div className="absolute bottom-[-140px] left-[-140px] w-[420px] h-[420px] bg-emerald-300/20 rounded-full blur-[90px] -z-10" />
+
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <ScrollReveal width="100%" className="text-left mb-16">
+                    <span className="inline-block text-emerald-700 font-semibold text-sm tracking-widest uppercase bg-emerald-100 px-4 py-1 rounded-full mb-4">
+                        Process
+                    </span>
+
+                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+                        How We <span className="text-emerald-600">Work</span>
                     </h2>
+
+                    <p className="text-gray-600 text-base md:text-lg max-w-2xl">
+                        A seamless, transparent 4-step process designed for efficiency and results.
+                    </p>
                 </ScrollReveal>
 
-                <div className="relative">
-                    <div className="hidden lg:block absolute top-[60px] left-0 w-full h-1 bg-gray-100 -translate-y-1/2 z-0">
-                        <div className="h-full bg-gradient-to-r from-primary-500/0 via-primary-500/20 to-primary-500/0" />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
-                        {steps.map((step, index) => (
-                            <ScrollReveal key={index} delay={index * 0.15}>
-                                <div className="flex flex-col items-center text-center group">
-                                    <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center relative mb-8 shadow-lg group-hover:shadow-xl transition-all duration-300 border-4 border-gray-50 group-hover:border-primary-200">
-                                        <div className="w-20 h-20 bg-primary-500 text-white rounded-full flex items-center justify-center text-3xl transition-transform group-hover:scale-110">
-                                            <step.icon className="w-8 h-8" />
-                                        </div>
-                                        <div className="absolute -top-2 -right-2 w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 font-bold text-sm shadow-md border-2 border-white">
-                                            {step.id}
-                                        </div>
-                                    </div>
-
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-500 transition-colors">
-                                        {step.title}
-                                    </h3>
-                                    <p className="text-gray-500 leading-relaxed font-medium">
-                                        {step.description}
-                                    </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+                    {steps.map((step, index) => (
+                        <ScrollReveal key={index} delay={index * 0.12}>
+                            <div className="group relative p-7 rounded-3xl bg-white border border-emerald-100 shadow-sm hover:shadow-md hover:-translate-y-[2px] transition-all duration-300">
+                                {/* Step number (light watermark) */}
+                                <div className="text-5xl font-bold text-emerald-100 absolute top-4 right-6 pointer-events-none">
+                                    {step.id}
                                 </div>
-                            </ScrollReveal>
-                        ))}
-                    </div>
+
+                                {/* Icon */}
+                                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 bg-emerald-50 border border-emerald-100 group-hover:bg-emerald-100 transition-colors">
+                                    <step.icon className="w-6 h-6 text-emerald-600" />
+                                </div>
+
+                                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                                    {step.title}
+                                </h3>
+
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    {step.description}
+                                </p>
+
+                                <div className="mt-6 h-px w-full bg-gradient-to-r from-emerald-200/70 via-emerald-100/60 to-transparent" />
+                            </div>
+                        </ScrollReveal>
+                    ))}
                 </div>
             </div>
         </section>

@@ -2,78 +2,118 @@
 
 import PrimaryButton from "./PrimaryButton";
 import { motion } from "framer-motion";
+import FloatingElement from "./ui/FloatingElement";
 
 export default function Hero() {
     return (
-        <section className="relative w-full overflow-hidden bg-white min-h-[92vh] flex items-center pt-24 sm:pt-32 pb-12 sm:pb-24">
-            {/* Background Gradients */}
-            <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-primary-50/70 rounded-full blur-[120px] -z-10 pointer-events-none" />
-            <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary-100/50 rounded-full blur-[100px] -z-10 pointer-events-none" />
+        <section className="relative w-full overflow-hidden min-h-[70vh] md:min-h-[75vh] flex items-center pt-20 md:pt-24 pb-12 bg-dark">
+            {/* Background Image */}
+            <div
+                className="absolute inset-0 -z-20 bg-center bg-cover bg-no-repeat"
+                style={{ backgroundImage: "url('/bioscience-hero-section.png')" }}
+            />
+
+            {/* Overlay */}
+            <div className="absolute inset-0 -z-10 bg-black/65" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+
+            {/* Floating Particles */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <FloatingElement delay={0} duration={8} className="absolute top-[10%] left-[5%] opacity-20">
+                    <div className="w-64 h-64 rounded-full border border-emerald-400/30 blur-3xl bg-emerald-900/20" />
+                </FloatingElement>
+
+                <FloatingElement delay={2} duration={10} className="absolute bottom-[15%] right-[10%] opacity-20">
+                    <div className="w-80 h-80 rounded-full border border-emerald-300/20 blur-3xl bg-emerald-500/10" />
+                </FloatingElement>
+
+                {[...Array(6)].map((_, i) => (
+                    <FloatingElement
+                        key={i}
+                        delay={i * 1.5}
+                        duration={5 + i}
+                        className="absolute opacity-40"
+                        style={{
+                            top: `${10 + Math.random() * 70}%`,
+                            left: `${5 + Math.random() * 90}%`,
+                        }}
+                    >
+                        <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]" />
+                    </FloatingElement>
+                ))}
+            </div>
 
             <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="flex flex-col justify-center items-center text-center max-w-5xl mx-auto"
-                >
-                    <div className="inline-flex items-center gap-2 mb-8 px-5 py-2 rounded-full bg-white border border-primary-100 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow">
+                <div className="flex flex-col justify-center items-center text-center max-w-5xl mx-auto">
+                    {/* Badge */}
+                    <motion.div
+                        initial={{ opacity: 0, y: -18 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.55 }}
+                        className="inline-flex items-center gap-2 mb-6 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15"
+                    >
+                        {/* ✅ Visible Dot */}
                         <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-500"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
                         </span>
-                        <span className="text-primary-700 font-bold text-xs tracking-widest uppercase">
+
+                        <span className="text-white/90 font-mono text-xs tracking-widest uppercase">
                             Redefining Life Sciences
                         </span>
-                    </div>
+                    </motion.div>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 mb-8 leading-[1.05]">
-                        Advancing Bioscience <br />
-                        <span className="relative inline-block text-gray-900 z-10 px-2">
-                            Innovation
-                            <div className="absolute inset-x-0 bottom-2 w-full h-4 bg-primary-200/50 -z-10 skew-x-[-12deg] rounded-sm" />
-                        </span>{" "}
-                        & Careers
-                    </h1>
+                    {/* Title */}
+                    <FloatingElement yOffset={10} duration={8}>
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight text-white mb-6 leading-[1.1]">
+                            Advancing{" "}
+                            {/* ✅ Gradient with fallback visible */}
+                            <span className="text-emerald-300 bg-clip-text md:text-transparent md:bg-gradient-to-r md:from-emerald-300 md:via-emerald-200 md:to-emerald-300">
+                                Bioscience
+                            </span>
+                            <br />
+                            <span className="text-white">New Reality</span>
+                        </h1>
+                    </FloatingElement>
 
-                    <p className="mt-2 text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mb-12 font-medium">
-                        GeneVeda empowers researchers, clinicians, and students with cutting-edge genomics, diagnostics, and global career pathways.
-                    </p>
+                    {/* Subtitle */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.25, duration: 0.7 }}
+                        className="text-base md:text-xl text-white/85 leading-relaxed max-w-3xl mb-10"
+                    >
+                        GeneVeda empowers researchers with anti-gravity thinking in genomics, diagnostics,
+                        and global career pathways.
+                    </motion.p>
 
-                    <div className="flex flex-col sm:flex-row gap-5 justify-center w-full sm:w-auto mb-20">
-                        <PrimaryButton href="/contact" className="shadow-xl shadow-primary-500/20">
-                            Get Consultation
+                    {/* Buttons */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.75 }}
+                        className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto"
+                    >
+                        <PrimaryButton
+                            href="/contact"
+                            className="bg-emerald-600 hover:bg-emerald-500 text-white border-none shadow-lg shadow-emerald-500/25 font-semibold"
+                        >
+                            Start Your Journey
                         </PrimaryButton>
 
                         <PrimaryButton
                             href="/services"
                             variant="outline"
+                            className="border-white/25 text-white hover:bg-white/10 hover:border-white/40"
                         >
-                            Explore Services
+                            Explore Labs
                         </PrimaryButton>
-                    </div>
-
-                    {/* Trust Indicator / Mini Stats */}
-                    <div className="w-full max-w-5xl border-t border-gray-100 pt-12">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-center text-center">
-                            <div className="flex flex-col items-center">
-                                <span className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">550+</span>
-                                <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">Publications</span>
-                            </div>
-                            <div className="hidden md:block w-px h-16 bg-gray-100 mx-auto" />
-                            <div className="flex flex-col items-center">
-                                <span className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">300M+</span>
-                                <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">Tests Performed</span>
-                            </div>
-                            <div className="hidden md:block w-px h-16 bg-gray-100 mx-auto" />
-                            <div className="flex flex-col items-center col-span-2 md:col-span-1">
-                                <span className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">Global</span>
-                                <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">Research Network</span>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
             </div>
+
+            {/* Bottom fade */}
+            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/70 to-transparent z-20" />
         </section>
     );
 }
